@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Create a Plan</h1>
+<p class="subtle">Examples: “Plan a 2-day vegetarian food tour in Hyderabad”, “Organise a 5-step daily study routine for learning Python”.</p>
+{% if error %}<div class="error">{{ error }}</div>{% endif %}
+<form method="post" action="{{ url_for('make_plan') }}">
+  <label for="goal">Goal</label>
+  <textarea id="goal" name="goal" rows="4" placeholder="Describe your goal..."></textarea>
+  <button type="submit">Generate Plan</button>
+</form>
+{% endblock %}

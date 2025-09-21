@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>History</h1>
+<table>
+  <thead><tr><th>ID</th><th>Goal</th><th>Created</th><th></th></tr></thead>
+  <tbody>
+    {% for p in plans %}
+    <tr>
+      <td>{{ p.id }}</td>
+      <td>{{ p.goal[:90] }}{% if p.goal|length > 90 %}…{% endif %}</td>
+      <td>{{ p.created_at }}</td>
+      <td><a href="{{ url_for('view_plan', plan_id=p.id) }}">View</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

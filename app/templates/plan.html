@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Plan Saved</h1>
+<p><strong>Goal:</strong> {{ plan.goal }}</p>
+
+<article class="markdown">
+  {{ plan.plan_markdown | markdown | safe }}
+</article>
+
+<p class="muted">Created at: {{ plan.created_at }}</p>
+<a class="btn" href="{{ url_for('history') }}">Back to History</a>
+{% endblock %}
